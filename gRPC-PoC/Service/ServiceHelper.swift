@@ -10,10 +10,10 @@ import Foundation
 import SwiftGRPC
 
 class Environment {
-    static let lightwalletdKey = "lightwalletd-address"
+    static let lightwalletdKey = "LIGHTWALLETD-ADDRESS"
     static func launch() {
         guard let addr = ProcessInfo.processInfo.environment[lightwalletdKey] else {
-            print("no lightwalletd-address set up!")
+            print("no LIGHTWALLETD-ADDRESS set up!")
             return
         }
         

@@ -11,7 +11,7 @@ Clone and run ```pod install```
 ### setting it up
 We don't like to commit address so the environment has to be set up from environment variables
 
-If you take a look at the environment class, you will see that it will expect to get it from the ```lightwalletd-address``` key.
+If you take a look at the environment class, you will see that it will expect to get it from the ```LIGHTWALLETD-ADDRESS``` key.
 
 Set the running scheme to pass that environment variable with the proper key
 ![](images/edit_scheme.png)
@@ -19,10 +19,10 @@ Set the running scheme to pass that environment variable with the proper key
 
 ```` swift 
 class Environment {
-    static let lightwalletdKey = "lightwalletd-address"
+    static let lightwalletdKey = "LIGHTWALLETD-ADDRESS"
     static func launch() {
         guard let addr = ProcessInfo.processInfo.environment[lightwalletdKey] else {
-            print("no lightwalletd-address set up!")
+            print("no lLIGHTWALLETD-ADDRESS set up!")
             return
         }
         
