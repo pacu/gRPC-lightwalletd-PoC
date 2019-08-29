@@ -52,10 +52,14 @@ You can verify that the environment is being set up properly by running the test
 
 ### Running it 
 If you did everything correctly and your tests pass you should see this
-![](/images/block_size.png)
+
+<img src="images/block_size.png" width=30%>
+
 
 Otherwise you will see this when running 
-![](/images/block_failed.png])
+
+<img src="images/block_failed.png" width=30%>
+
 
 ## Contributing
 If you find any issues please create one. 
