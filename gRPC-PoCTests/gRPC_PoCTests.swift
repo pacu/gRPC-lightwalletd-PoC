@@ -11,24 +11,23 @@ import XCTest
 
 class gRPC_PoCTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testEnvironmentLaunch() {
+        
+        let address = gRPC_PoC.Environment.address
+        
+        XCTAssertFalse(address.isEmpty, "Your \'\(Environment.lightwalletdKey)\' key is missing from your launch environment variables")
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testService() {
+        
+        let latestBlock = try? ServiceHelper.shared.latestBlock()
+        
+        // Check that your block has been retrieved
+        XCTAssertNotNil(latestBlock)
+        
+        // and that it has a non-zero size
+        XCTAssert(latestBlock!.height > 0)
+        
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

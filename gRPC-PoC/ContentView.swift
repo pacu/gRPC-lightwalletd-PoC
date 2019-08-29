@@ -10,7 +10,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello World")
+        
+        guard let blockID = try? ServiceHelper.shared.latestBlock() else {
+            
+            return Text("getLatestBlock failed")
+        }
+        
+        return Text("block height: \(blockID.height)")
     }
 }
 
