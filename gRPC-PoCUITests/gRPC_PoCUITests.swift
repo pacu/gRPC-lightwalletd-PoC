@@ -14,10 +14,8 @@ class gRPC_PoCUITests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
-
-        XCTAssertNotNil(app.staticTexts.firstMatch.accessibilityLabel)
         
-        XCTAssert(app.staticTexts.firstMatch.accessibilityLabel!.contains("block height:"))
+        XCTAssert(app.staticTexts.firstMatch.label.contains("block height:"))
         
     }
 }
