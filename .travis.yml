@@ -1,0 +1,6 @@
+language: swift
+xcode_project: gRPC-PoC.xcworkspace
+xcode_scheme: gRPC-PoC
+osx_image: xcode11
+podfile: Podfile
+xcode_destination: platform=iOS Simulator,OS=13.0,name=iPhone XR
