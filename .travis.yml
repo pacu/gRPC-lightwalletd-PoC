@@ -1,5 +1,5 @@
 language: swift
-xcode_project: gRPC-PoC.xcworkspace
+xcode_project: gRPC-PoC.xcodeproj
 xcode_scheme: gRPC-PoC
 osx_image: xcode11
 podfile: Podfile
