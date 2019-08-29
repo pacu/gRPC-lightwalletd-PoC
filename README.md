@@ -1,5 +1,6 @@
 # gRPC POC - A gRPC Proof of concept
 
+![](https://travis-ci.org/pacu/gRPC-lightwalletd-PoC.svg?branch=master)
 ## Motivation 
 test Swift-GRPC services using lightwalletd nodes
 
