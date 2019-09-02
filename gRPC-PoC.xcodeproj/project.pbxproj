@@ -62,7 +62,7 @@
 		0D0DEA462317224100D01EAF /* service.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = service.pb.swift; sourceTree = "<group>"; };
 		0D8064B0231D931A006BDB4D /* Constants.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.generated.swift; sourceTree = "<group>"; };
 		0D80F16823181A830087334E /* ServiceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHelper.swift; sourceTree = "<group>"; };
-		0DF00D7F23174D6C008354C9 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		0DF00D7F23174D6C008354C9 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		0DF00D80231772A7008354C9 /* service.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = service.grpc.swift; sourceTree = "<group>"; };
 		229C239A440198003E1F239F /* Pods-gRPC-PoC-gRPC-PoCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gRPC-PoC-gRPC-PoCTests.release.xcconfig"; path = "Target Support Files/Pods-gRPC-PoC-gRPC-PoCTests/Pods-gRPC-PoC-gRPC-PoCTests.release.xcconfig"; sourceTree = "<group>"; };
 		680E59C87E95D16E9EB4D243 /* Pods_gRPC_PoC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gRPC_PoC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
