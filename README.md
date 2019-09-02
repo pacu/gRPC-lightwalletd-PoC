@@ -4,14 +4,26 @@
 ## Motivation 
 test Swift-GRPC services using lightwalletd nodes
 
-## Usage
-
 ### installing 
+Install Sourcery and put it in your PATH variable or 
+``` brew install sourcery```
+
 Clone and run ```pod install``` 
 
 ### setting it up
-We don't like to commit address so the environment has to be set up from environment variables
+We don't like to commit address so the environment has to be set up from environment variables. This project users Sourcery to generate a Swift file with the secret environment variables from a template and a value you provide before compiling your sources. 
 
+#### Setting your 'LIGHTWALLETD_ADDRESS' environment variable (sh file option)
+on your Source directory, create the file: ```env-vars.sh```
+```` bash
+export LIGHTWALLETD_ADDRESS=YOUR_BASH_ESCAPED_ADDRESS
+````
+
+#### Setting your 'LIGHTWALLETD_ADDRESS' environment variable 
+Make sure that there's a value for the variable ```LIGHTWALLETD_ADDRESS``` when the build is triggered.
+
+
+This will make the Script on the "run script" phase get the correct environment variable for you. If running on CI, you can set the ENVIRONMENT_VARIABLE directly. (you can do that on your dev environment as well)
 If you take a look at the environment class, you will see that it will expect to get it from the ```LIGHTWALLETD-ADDRESS``` key.
 
 Set the running scheme to pass that environment variable with the proper key

@@ -12,15 +12,8 @@ import SwiftGRPC
 class Environment {
     static let lightwalletdKey = "LIGHTWALLETD_ADDRESS"
     
-    static func launch() {
-        let addr = Constants.address
-        
-        UserDefaults.standard.set(addr, forKey: lightwalletdKey)
-        UserDefaults.standard.synchronize()
-    }
-    
     static var address: String {
-        UserDefaults.standard.object(forKey: lightwalletdKey) as? String ?? ""
+        return Constants.address
     }
 }
 class ServiceHelper {
