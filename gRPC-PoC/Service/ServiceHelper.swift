@@ -10,19 +10,10 @@ import Foundation
 import SwiftGRPC
 
 class Environment {
-    static let lightwalletdKey = "LIGHTWALLETD-ADDRESS"
-    static func launch() {
-        guard let addr = ProcessInfo.processInfo.environment[lightwalletdKey] else {
-            print("no LIGHTWALLETD-ADDRESS set up!")
-            return
-        }
-        
-        UserDefaults.standard.set(addr, forKey: lightwalletdKey)
-        UserDefaults.standard.synchronize()
-    }
+    static let lightwalletdKey = "LIGHTWALLETD_ADDRESS"
     
     static var address: String {
-        UserDefaults.standard.object(forKey: lightwalletdKey) as? String ?? ""
+        return Constants.address
     }
 }
 class ServiceHelper {
