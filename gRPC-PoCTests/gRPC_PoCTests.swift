@@ -21,13 +21,40 @@ class gRPC_PoCTests: XCTestCase {
     
     func testService() {
         
-        let latestBlock = try? ServiceHelper.shared.latestBlock()
-        
-        // Check that your block has been retrieved
-        XCTAssertNotNil(latestBlock)
+        guard let latestBlock = try? ServiceHelper.shared.latestBlock() else {
+            XCTFail("failed to get latest block")
+            return
+        }
         
         // and that it has a non-zero size
-        XCTAssert(latestBlock!.height > 0)
+        XCTAssert(latestBlock.height > 0)
         
+    }
+    
+    func testBlockRangeService() {
+
+        let expect = XCTestExpectation(description: self.debugDescription)
+        
+        let _ = try? ServiceHelper.shared.getAllBlocksSinceSaplingLaunch(){ result in
+            print(result)
+            expect.fulfill()
+            XCTAssert(result.success)
+            XCTAssertNotNil(result.resultData)
+        }
+    }
+    
+    func testBlockRangeServiceTilLastest() {
+        let expect = XCTestExpectation(description: self.debugDescription)
+        
+        guard let latestBlock = try? ServiceHelper.shared.latestBlock() else {
+            XCTFail("failed to get latest block")
+            return
+        }
+        
+        let _ = try? ServiceHelper.shared.getBlockRange(startHeight: BlockID.saplingActivationHeight, endHeight: latestBlock.height) { result in
+            expect.fulfill()
+            XCTAssert(result.success)
+            XCTAssertNotNil(result.resultData)
+        }
     }
 }
