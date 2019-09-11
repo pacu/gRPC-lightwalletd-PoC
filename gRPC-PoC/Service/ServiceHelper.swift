@@ -33,6 +33,8 @@ class ServiceHelper {
            try compactTxStreamer.getBlockRange(BlockRange(startHeight: startHeight, endHeight: endHeight)) { result($0) }
     }
     
+    
+    
 }
 
 extension ServiceHelper {
@@ -50,7 +52,13 @@ extension ServiceHelper {
     func getAllBlocksSinceSaplingLaunch(_ result: @escaping (CallResult)->()) throws -> CompactTxStreamerGetBlockRangeCall {
         try compactTxStreamer.getBlockRange(BlockRange.sinceSaplingActivation(), completion: result)
     }
-    
+}
+
+
+extension Range where Element == UInt64 {
+    func blockRange() -> BlockRange {
+        BlockRange(startHeight: lowerBound, endHeight: upperBound)
+    }
 }
 
 
