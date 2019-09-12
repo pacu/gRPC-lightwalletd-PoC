@@ -40,26 +40,29 @@ class gRPC_PoCTests: XCTestCase {
     }
     
     func testBlockRangeServiceTilLastest() {
+        let expectedCount: UInt64 = 99
+        var count: UInt64 = 0
         let expect = XCTestExpectation(description: self.debugDescription)
-        let startHeight = Self.latestBlock.height - 100
+        
+        let startHeight = Self.latestBlock.height - expectedCount
         let endHeight = Self.latestBlock.height
         guard let call = try? ServiceHelper.shared.getBlockRange(startHeight: startHeight, endHeight: endHeight,result: {
             result in
-                       expect.fulfill()
                        XCTAssert(result.success)
-                       XCTAssertNotNil(result.resultData)
                    
         }) else {
             XCTFail("failed to create getBlockRange( \(startHeight) ..<= \(endHeight)")
             return
         }
+        wait(for: [expect], timeout: 20)
         
-        let _ = try? call.receive(completion: { (result) in
-            XCTAssertNotNil(result, "result or error nil")
+        while let _ = try? call.receive() {
             expect.fulfill()
-            
-        })
-        wait(for: [expect], timeout: 5)
+            count += 1
+        }
+        
+        XCTAssertEqual(expectedCount + 1, count)
+        
     }
     
 }
